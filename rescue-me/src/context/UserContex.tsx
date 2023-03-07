@@ -18,7 +18,7 @@ interface IUser {
 
 interface IUserContext {
   user: IUser | null;
-  setUser:  React.Dispatch<React.SetStateAction<IUser | null>>;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
   UserLogin: (formData: ILogin) => Promise<void>;
   UserRegister: (formData: IRegister) => Promise<void>;
   userLogout: () => void;
