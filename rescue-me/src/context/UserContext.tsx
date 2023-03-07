@@ -1,6 +1,5 @@
-import React, { createContext, useEffect } from "react";
+import React, { createContext, useEffect, useState } from "react";
 // import { useNavigate } from 'react-router-dom';
-import { useFormState } from "react-hook-form/dist/useFormState";
 import { toast } from "react-toastify";
 import { api } from "../services";
 
@@ -18,11 +17,10 @@ interface IUser {
 
 interface IUserContext {
   user: IUser | null;
-  setUser:  React.Dispatch<React.SetStateAction<IUser | null>>;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
   UserLogin: (formData: ILogin) => Promise<void>;
   UserRegister: (formData: IRegister) => Promise<void>;
   userLogout: () => void;
-  Token: string;
 }
 
 export interface ILogin {
@@ -38,15 +36,15 @@ export interface IRegister {
 }
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
-  const [user, setUser] = useFormState<IUser | null>(null);
+  const [user, setUser] = useState<IUser | null>(null);
   const Token = localStorage.getItem("@Token")!;
   //   const navigate = useNavigate();
 
   const UserLogin = async (formData: ILogin) => {
     try {
-      const response = api.post("/login", formData);
-      setUser(await response);
-      //   localStorage.setItem('@Token', (await response).data.accessToken);
+      const response = await api.post<any>("/login", formData);
+      localStorage.setItem("@Token", response.data.accessToken);
+      setUser(response.data);
       toast.success("Login Realizado com sucesso!");
       //   navigate('/dashborn');
     } catch (error) {
@@ -72,7 +70,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   };
   return (
     <UserContext.Provider
-      value={{ user, setUser, UserLogin, UserRegister, userLogout, Token }}
+      value={{ user, setUser, UserLogin, UserRegister, userLogout }}
     >
       {children}
     </UserContext.Provider>
