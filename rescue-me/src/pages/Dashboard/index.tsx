@@ -1,4 +1,4 @@
-import { CardShelter } from "../../components/CardShelter";
+import { CardShelter } from "../../components/CardShelter"
 
 export function Dashboard() {
     return (
