@@ -7,7 +7,7 @@ export function CreateCardPets({ renderPets }: any) {
 
   return (
     <>
-      <img src={renderPets.img} />
+      <img src={renderPets.img} alt=''/>
       <li>{renderPets.name}</li>
       <li>{renderPets.type}</li>
       <div>
