@@ -9,10 +9,11 @@ interface IDefaultProviderProps {
   children: React.ReactNode;
 }
 
-interface IUser {
+export interface IUser {
   id: string;
   name: string;
   email: string;
+  isAdmin?: string;
 }
 
 interface IUserContext {

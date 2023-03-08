@@ -4,7 +4,7 @@ export interface IDefaultProviderProps {
   children: React.ReactNode;
 }
 
-export interface IPetsCart {
+export interface IPetsCard {
   name: string;
   img: string;
   type: string;
@@ -28,4 +28,22 @@ export interface IPetsDescript {
   type: string;
   status: string;
   userId: number;
+}
+
+export interface iShelter{
+  address: string;
+  id: number;
+  img: string;
+  name: string;
+  pets: IPetsCard[];
+  state: string;
+  telephone: number;
+  userId: number;
+}
+
+export interface iCardShelter{
+    imageShelter: string;
+    shelterName: string;
+    shelterCity: string;
+    isAdmin: boolean;
 }

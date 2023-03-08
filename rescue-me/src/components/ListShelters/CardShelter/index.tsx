@@ -1,13 +1,9 @@
 import { BsTrash3 } from "react-icons/bs"
 import "./style.css"
+import { iCardShelter } from "../../../context/@types"
 
-interface iCardShelter{
-    imageShelter: string;
-    shelterName: string;
-    shelterCity: string;
-}
 
-export function CardShelter({imageShelter, shelterName, shelterCity}:iCardShelter) {
+export function CardShelter({imageShelter, shelterName, shelterCity, isAdmin}:iCardShelter) {
 
     return (
         <div className="CardShelterContainer">
@@ -21,7 +17,7 @@ export function CardShelter({imageShelter, shelterName, shelterCity}:iCardShelte
                 </div>
                 <div className="ButtonsCardShelter">
                     <button className="ButtonAnimalsShelter">Animais no abrigo</button>
-                    <button className="ButtonDeleteCardShelter"><BsTrash3 color="#fff" size={20} /></button>
+                    {isAdmin?<button className="ButtonDeleteCardShelter"><BsTrash3 color="#fff" size={20} /></button>:<br></br>}
                 </div>
             </section>
         </div>
