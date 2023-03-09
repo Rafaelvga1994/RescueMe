@@ -1,7 +1,4 @@
 import { useContext } from "react";
-import { ModalDeletePets } from "./components/ModalDeletePets";
-import { ModalEditPets } from "./components/ModalEditPets";
-import { ModalPets } from "./components/ModalPets";
 import { RenderCardPets } from "./components/RenderCardPets";
 import { PetsContex } from "./context/PetsContext";
 import Router from "./routes";
@@ -11,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router/>
+      <Router />
     </div>
   );
 }
