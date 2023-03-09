@@ -1,6 +1,5 @@
-import React, { createContext, useEffect } from "react";
-// import { useNavigate } from 'react-router-dom';
-import { useFormState } from "react-hook-form/dist/useFormState";
+import React, { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services";
 
@@ -10,19 +9,19 @@ interface IDefaultProviderProps {
   children: React.ReactNode;
 }
 
-interface IUser {
+export interface IUser {
   id: string;
   name: string;
   email: string;
+  isAdmin?: string;
 }
 
 interface IUserContext {
   user: IUser | null;
-  setUser:  React.Dispatch<React.SetStateAction<IUser | null>>;
+  setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
   UserLogin: (formData: ILogin) => Promise<void>;
   UserRegister: (formData: IRegister) => Promise<void>;
   userLogout: () => void;
-  Token: string;
 }
 
 export interface ILogin {
@@ -38,28 +37,31 @@ export interface IRegister {
 }
 
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
-  const [user, setUser] = useFormState<IUser | null>(null);
+  const [user, setUser] = useState<IUser | null>(null);
   const Token = localStorage.getItem("@Token")!;
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const UserLogin = async (formData: ILogin) => {
+    console.log(formData)
     try {
-      const response = api.post("/login", formData);
-      setUser(await response);
-      //   localStorage.setItem('@Token', (await response).data.accessToken);
+      const response = await api.post<any>("/login", formData);
+      console.log(response.data)
+      console.log(formData)
+      localStorage.setItem("@Token", response.data.accessToken);
+      setUser(response.data);
       toast.success("Login Realizado com sucesso!");
-      //   navigate('/dashborn');
+      navigate("/dashboard");
     } catch (error) {
       toast.error("Email ou senha invalido");
+      console.log(error)
     }
   };
   const UserRegister = async (formData: IRegister) => {
     try {
       const response = api.post("/users", formData);
       setUser((await response).data.user);
-      localStorage.setItem("@Token", (await response).data);
       toast.success("Registro feito com sucesso!");
-      //   navigate('/');
+      navigate("/");
     } catch (error) {
       toast.error("Usúario já cadastrado");
     }
@@ -68,11 +70,11 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     setUser(null);
     localStorage.removeItem("@Token");
     toast.success("Logout Realizado com sucesso!");
-    // navigate('/');
+    navigate("/");
   };
   return (
     <UserContext.Provider
-      value={{ user, setUser, UserLogin, UserRegister, userLogout, Token }}
+      value={{ user, setUser, UserLogin, UserRegister, userLogout }}
     >
       {children}
     </UserContext.Provider>
