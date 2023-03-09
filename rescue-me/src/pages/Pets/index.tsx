@@ -10,7 +10,6 @@ export function PetsPage() {
 
   return (
     <div>
-      {/* Pets Page */}
       {isOpen && <ModalPets />}
       {isOpenTwo && <ModalEditPets />}
       {isOpenThree && <ModalDeletePets />}

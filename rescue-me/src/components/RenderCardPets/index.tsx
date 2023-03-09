@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import { IPetsContext, IPetsDescript } from "../../context/@types";
 import { PetsContex } from "../../context/PetsContext";
 import { InformationPets } from "../InformationPets";
@@ -27,13 +27,11 @@ export function RenderCardPets() {
           </button>
         </div>
         {pets.map((pet: IPetsContext) => (
-          <Fragment>
+          <ul>
             {pet.pets.map((renderPets: IPetsDescript) => (
-              <ul>
-                <CreateCardPets key={pets.id} renderPets={renderPets} />
-              </ul>
+              <CreateCardPets key={pets.id} renderPets={renderPets} />
             ))}
-          </Fragment>
+          </ul>
         ))}
       </section>
     </div>

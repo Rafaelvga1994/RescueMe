@@ -13,7 +13,7 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2NzgzMjAyNDQsImV4cCI6MTY3ODMyMzg0NCwic3ViIjoiNCJ9.az-xTnC3foUCZrcsMVE5wtglaDhZ2mKwmP65g28TZkM";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2NzgzMjI1NDAsImV4cCI6MTY3ODMyNjE0MCwic3ViIjoiNCJ9.S4EfpV7uSaw__4AtY2_tvdr4OCdM8G_ymd8bOF-L5Hg";
 
     async function importPetsFromCard() {
       try {
