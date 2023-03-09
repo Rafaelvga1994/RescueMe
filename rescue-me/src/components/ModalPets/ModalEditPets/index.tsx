@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PetsContex } from "../../context/PetsContext";
+import { PetsContex } from "../../../context/PetsContext";
 
 export function ModalEditPets() {
   const { setIsOpenTwo } = useContext(PetsContex);
