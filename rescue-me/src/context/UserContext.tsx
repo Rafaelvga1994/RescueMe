@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services";
 
@@ -39,26 +39,29 @@ export interface IRegister {
 export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
   const Token = localStorage.getItem("@Token")!;
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const UserLogin = async (formData: ILogin) => {
+    console.log(formData)
     try {
       const response = await api.post<any>("/login", formData);
+      console.log(response.data)
+      console.log(formData)
       localStorage.setItem("@Token", response.data.accessToken);
       setUser(response.data);
       toast.success("Login Realizado com sucesso!");
-      //   navigate('/dashborn');
+      navigate("/dashboard");
     } catch (error) {
       toast.error("Email ou senha invalido");
+      console.log(error)
     }
   };
   const UserRegister = async (formData: IRegister) => {
     try {
       const response = api.post("/users", formData);
       setUser((await response).data.user);
-      localStorage.setItem("@Token", (await response).data);
       toast.success("Registro feito com sucesso!");
-      //   navigate('/');
+      navigate("/");
     } catch (error) {
       toast.error("Usúario já cadastrado");
     }
@@ -67,7 +70,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     setUser(null);
     localStorage.removeItem("@Token");
     toast.success("Logout Realizado com sucesso!");
-    // navigate('/');
+    navigate("/");
   };
   return (
     <UserContext.Provider

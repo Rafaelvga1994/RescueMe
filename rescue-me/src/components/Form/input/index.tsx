@@ -13,7 +13,7 @@ export const Input = ({ label, type, register, error }: IInputProps) => {
   return (
     <fieldset>
       <label htmlFor={type}>{label}</label>
-      <input type={type} id={type} {...register} />
+      <input type={type} {...register} />
       {errorMessage && <p>{errorMessage}</p>}
     </fieldset>
   );
