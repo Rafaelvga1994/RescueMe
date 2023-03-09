@@ -1,12 +1,12 @@
 import { BsTrash3 } from "react-icons/bs"
-import "./style.css"
+import { CardShelterContainerStyled } from "./style"
 import { iCardShelter } from "../../../context/@types"
 
 
 export function CardShelter({imageShelter, shelterName, shelterCity, isAdmin}:iCardShelter) {
 
     return (
-        <div className="CardShelterContainer">
+        <CardShelterContainerStyled>
             <div className="ImageShelterContainer">
                 <img className="ImageShelter" src={imageShelter} alt="" />
             </div>
@@ -20,6 +20,7 @@ export function CardShelter({imageShelter, shelterName, shelterCity, isAdmin}:iC
                     {isAdmin?<button className="ButtonDeleteCardShelter"><BsTrash3 color="#fff" size={20} /></button>:<br></br>}
                 </div>
             </section>
-        </div>
+        </CardShelterContainerStyled>
+        
     )
 }

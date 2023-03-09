@@ -1,13 +1,10 @@
-import { useContext } from "react";
-import { RenderCardPets } from "./components/RenderCardPets";
-import { PetsContex } from "./context/PetsContext";
 import Router from "./routes";
+import { GlobalStyles } from "./styles/GlobalStyles";
 
 function App() {
-  const { isOpen, isOpenTwo, isOpenThree } = useContext(PetsContex);
-
   return (
     <div className="App">
+      <GlobalStyles />
       <Router />
     </div>
   );

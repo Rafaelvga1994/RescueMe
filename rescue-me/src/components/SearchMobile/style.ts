@@ -1,5 +1,6 @@
+import styled from "styled-components";
 
-.SearchMobileContainer{
+export const SearchMobileContainerStyled = styled.div`
     margin: 12px 0px;
     min-width: 340px;
     max-width: 900px;
@@ -10,7 +11,6 @@
     justify-content: space-between;
     gap: 16px;
     
-}
 
 .SearchMobileContainer>span{
     align-self: flex-start;
@@ -23,3 +23,5 @@
         display: none;
     }
 }
+`
+

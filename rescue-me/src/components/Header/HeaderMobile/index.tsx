@@ -1,13 +1,13 @@
 import { ButtonLogout } from "../../ButtonLogout";
-import "./style.css"
+import { HeaderContainerMobileStyled } from "./style";
 
 export function HeaderPageMobile() {
     return (
-        <header className="HeaderContainerMobile">
+        <HeaderContainerMobileStyled>
             <nav className="NavigatorMobile">
                 <h1 className="LogoRescueMeMobile">RescueMe</h1>
                 <ButtonLogout />
             </nav>
-        </header>
+        </HeaderContainerMobileStyled>
     )
 }

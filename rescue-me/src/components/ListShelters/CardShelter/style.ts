@@ -1,6 +1,8 @@
+import styled from "styled-components";
+
+export const CardShelterContainerStyled = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-.CardShelterContainer{
     width: 300px;
     height: 346px;
     border: 2px #00b29e solid;
@@ -8,7 +10,7 @@
     display: flex;
     flex-direction: column;
 
-}
+
 
 .ImageShelterContainer{
     width: 300px;
@@ -80,3 +82,7 @@
     background-color: #ff701c;
     border: none;
 }
+`
+
+
+

@@ -1,11 +1,14 @@
 import {RxExit} from "react-icons/rx"
-import "./style.css"
+import { ButtonLogoutStyled } from "./style"
+
 
 export function ButtonLogout() {
     return (
-        <button className="ButtonLogout">
+        <ButtonLogoutStyled>
+
             <RxExit color="#868E96" />
             <p>Sair da conta</p>
-        </button>
+        </ButtonLogoutStyled>
+        
     )
 }

@@ -1,6 +1,8 @@
+import styled from "styled-components";
+
+export const FormSearchBarStyled = styled.form`
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-.FormSearchBar{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -12,7 +14,7 @@
     height: 60px;
     border: 2px #E0E0E0 solid;
     border-radius: 8px;
-}
+
 
 .FormSearchBar>input{
     width: 80%;
@@ -28,4 +30,9 @@
     border: none;
     border-radius: 8px;
 }
+
+
+`
+
+
 

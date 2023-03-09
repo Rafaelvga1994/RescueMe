@@ -1,10 +1,10 @@
 import { ButtonLogout } from "../../ButtonLogout";
-import "./style.css"
+import { HeaderContainerDesktopStyled } from "./style";
 import { SearchBar } from "../SearchBar";
 
 export function HeaderPageDesktop() {
     return (
-        <header className="HeaderContainerDesktop">
+        <HeaderContainerDesktopStyled>
             <nav className="NavigatorDesktop">
                 <h1 className="LogoRescueMeDesktop">RescueMe</h1>
                 <div className="DesktopHeaderContainer">
@@ -13,6 +13,6 @@ export function HeaderPageDesktop() {
                     <ButtonLogout />
                 </div>
             </nav>
-        </header>
+        </HeaderContainerDesktopStyled>
     )
 }

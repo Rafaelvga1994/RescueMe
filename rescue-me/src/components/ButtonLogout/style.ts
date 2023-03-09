@@ -1,5 +1,7 @@
+import styled from "styled-components";
 
-.ButtonLogout{
+export const ButtonLogoutStyled = styled.div`
+
     width: 120px;
     height: 40px;
     border: none;
@@ -9,10 +11,14 @@
     align-items: center;
     justify-content: space-evenly;
     margin: 0;
-}
 
 .ButtonLogout>p{
     font-size: 12px;
     color: #868E96;
     width: 90%;
 }
+
+`
+
+
+
