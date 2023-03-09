@@ -1,5 +1,6 @@
+import styled from "styled-components";
 
-.FooterContainer{
+export const FooterContainerStyled = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,10 +9,14 @@
     background-color: #FEF1DE;
     position: fixed;
     bottom: 0;
-}
+
 
 .FooterText{
     font-family: sans-serif;
     font-size: 12px;
     color: #FF701C;
 }
+`
+
+
+

@@ -1,11 +1,11 @@
-import "./style.css"
-import { SearchBar } from "../Header/SearchBar"
+import { SearchMobileContainerStyled } from "./style";
+import { SearchBar } from "../Header/SearchBar";
 
 export function SearchMobile() {
-    return (
-        <div className="SearchMobileContainer">
-            <span>@user</span>
-            <SearchBar />
-        </div>
-    )
+  return (
+    <SearchMobileContainerStyled>
+      <span>@user</span>
+      <SearchBar />
+    </SearchMobileContainerStyled>
+  );
 }

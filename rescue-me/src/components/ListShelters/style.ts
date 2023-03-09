@@ -1,12 +1,13 @@
+import styled from "styled-components";
 
-.ListShelterContainer{
+export const ListShelterContainerStyled = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: flex-start;
     justify-content: center;
     overflow-x: scroll;
-}
+
 
 .ListShelter{
     display: flex;
@@ -38,3 +39,5 @@
         max-width: 1300px;
     }
 }
+`
+

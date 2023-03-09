@@ -1,11 +1,12 @@
+import styled from "styled-components";
 
-.HeaderContainerDesktop{
-    display: flex;
+export const HeaderContainerDesktopStyled = styled.header`
+display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px 0px;
     width: 100%;
-}
+
 
 .NavigatorDesktop{
     display: flex;
@@ -38,3 +39,7 @@
         display: none;
     }
 }
+`
+
+
+    

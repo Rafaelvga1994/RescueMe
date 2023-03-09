@@ -1,4 +1,4 @@
-import "./style.css";
+import { ListShelterContainerStyled } from "./style";
 import { CardShelter } from "./CardShelter";
 import { api } from "../../services";
 import { useEffect, useState } from "react";
@@ -6,15 +6,6 @@ import { useContext } from "react";
 import { IPetsCard } from "../../context/@types";
 import { iShelter } from "../../context/@types";
 import { IUser } from "../../context/UserContext";
-
-// interface iShelter{
-//     address: string;
-//     id: number;
-//     img: string;
-//     pets: IPetsCard[];
-//     state: string;
-//     userId: number;
-// }
 
 export function ListShelter() {
   const [shelterList, setShelterList] = useState<iShelter[]>();
@@ -38,7 +29,7 @@ export function ListShelter() {
   }, []);
 
   return (
-    <div className="ListShelterContainer">
+    <ListShelterContainerStyled>
       <ul className="ListShelter">
         {shelterList?.map((shelter) => (
           <li>
@@ -51,6 +42,6 @@ export function ListShelter() {
           </li>
         ))}
       </ul>
-    </div>
+    </ListShelterContainerStyled>
   );
 }

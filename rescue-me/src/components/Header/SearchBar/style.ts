@@ -1,0 +1,38 @@
+import styled from "styled-components";
+
+export const FormSearchBarStyled = styled.form`
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 8px;
+    max-width: 365px;
+    min-width: 340px;
+    width: 100%;
+    height: 60px;
+    border: 2px #E0E0E0 solid;
+    border-radius: 8px;
+
+
+.FormSearchBar>input{
+    width: 80%;
+    border: none;
+    font-family: 'Inter';
+    font-size: 16px;
+}
+
+.ButtonSearch{
+    height: 40px;
+    width: 53px;
+    background-color: #FF701C;
+    border: none;
+    border-radius: 8px;
+}
+
+
+`
+
+
+
