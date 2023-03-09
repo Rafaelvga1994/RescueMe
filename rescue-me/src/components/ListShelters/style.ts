@@ -22,13 +22,13 @@ export const ListShelterContainerStyled = styled.div`
 }
 
 @media (min-width:900px) {
-    .ListShelterContainer{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-    }
+    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    
 
     .ListShelter{
         flex-wrap: wrap;

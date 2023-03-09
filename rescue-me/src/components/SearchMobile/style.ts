@@ -10,18 +10,16 @@ export const SearchMobileContainerStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    
 
-.SearchMobileContainer>span{
+span{
     align-self: flex-start;
     margin: 0;
     padding: 0;
 }
 
 @media (min-width:900px) {
-    .SearchMobileContainer{
-        display: none;
-    }
+    display: none;
+
 }
 `
 

@@ -49,6 +49,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	padding: 16px;
 }
 ol, ul {
 	list-style: none;

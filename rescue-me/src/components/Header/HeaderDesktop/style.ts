@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderContainerDesktopStyled = styled.header`
-display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px 0px;
@@ -35,9 +35,7 @@ display: flex;
 
 
 @media (max-width:900px) {
-    .HeaderContainerDesktop{
-        display: none;
-    }
+    display: none;
 }
 `
 

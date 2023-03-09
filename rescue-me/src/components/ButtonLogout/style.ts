@@ -9,13 +9,13 @@ export const ButtonLogoutStyled = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 0;
 
-.ButtonLogout>p{
+p{
     font-size: 12px;
     color: #868E96;
-    width: 90%;
+    width: 80%;
 }
 
 `

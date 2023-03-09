@@ -27,9 +27,7 @@ export const HeaderContainerMobileStyled = styled.header`
 
 
 @media (min-width:900px) {
-    .HeaderContainerMobile{
-        display: none;
-    }
+    display: none;
 }
 `
 

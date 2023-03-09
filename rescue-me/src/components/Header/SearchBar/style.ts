@@ -16,7 +16,7 @@ export const FormSearchBarStyled = styled.form`
     border-radius: 8px;
 
 
-.FormSearchBar>input{
+input{
     width: 80%;
     border: none;
     font-family: 'Inter';
