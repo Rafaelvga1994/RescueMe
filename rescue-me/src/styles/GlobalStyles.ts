@@ -9,10 +9,10 @@ export const GlobalStyles = createGlobalStyle`
 	--color-sucess:#00AC11;
 	--color-error:#FF0000;
 	--color-gray1:#212529;
-	--color-gray1:#343A40;
-	--color-gray1:#495057;
-	--color-gray1:#868E96;
-	--color-gray1:#ADB5BD;
+	--color-gray2:#343A40;
+	--color-gray3:#495057;
+	--color-gray4:#868E96;
+	--color-gray5:#ADB5BD;
 
 }
 

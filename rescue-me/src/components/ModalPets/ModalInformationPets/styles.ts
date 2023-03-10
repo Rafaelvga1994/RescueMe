@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const StyledDialogModalPets = styled.dialog`
+export const StyleInformationModal = styled.dialog`
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 80%;
   height: 80%;
-  top: 38%;
+  top: 7%;
   padding: 1rem;
   border: 1px solid black;
   border-radius: 8px;

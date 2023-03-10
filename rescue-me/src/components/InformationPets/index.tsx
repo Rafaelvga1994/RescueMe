@@ -1,26 +1,37 @@
-export const InformationPets = () => {
-  return (
-    <div>
-      <h2>Informações</h2>
+import { useContext } from "react";
+import { PetsContex } from "../../context/PetsContext";
+import { StyledInformationPetsPage } from "./styles";
 
-      <section>
-        <h2>Imagem Logo</h2>
-        <section>
-          <div>
-            <h2>Recanto do Anjo</h2>
-            <button>Editar</button>
-          </div>
-          <h2>Endereço</h2>
-          <p>
-            R. Doná Joséfina Ludovíco Almeida, 1 - Cidade Vera Cruz, Aparecida
-            de Goiânia - GO, 74936-005
-          </p>
-          <h2>Cidade-UF</h2>
-          <p>GO</p>
-          <h2>Contato</h2>
-          <p>(11)15451211</p>
-        </section>
-      </section>
-    </div>
+export const InformationPets = () => {
+  const { setIsOpenFour, pets } = useContext(PetsContex);
+  return (
+    <StyledInformationPetsPage>
+      {pets.map((pet) => (
+        <div>
+          <h2 className="container__textInformation">Informações</h2>
+
+          <section className="container__informationsPet">
+            <img src={pet.img} alt="" />
+            <section className="informationLocationPets">
+              <div>
+                <h2>{pet.name}</h2>
+                <button
+                  onClick={() => {
+                    setIsOpenFour(true);
+                  }}
+                >
+                  Editar
+                </button>
+              </div>
+              <h3>Endereço</h3>
+              <p>{pet.address}</p>
+
+              <h2>Contato</h2>
+              <p>{pet.telephone}</p>
+            </section>
+          </section>
+        </div>
+      ))}
+    </StyledInformationPetsPage>
   );
 };
