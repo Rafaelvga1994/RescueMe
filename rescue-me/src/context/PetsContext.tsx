@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
-import { string } from "yup";
 import { api } from "../services";
-import {
-  IDefaultProviderProps,
-  IDescriptEditPets,
-  IPetsContext,
-  IPetsDescript,
-} from "./@types";
+import { IDefaultProviderProps, IPetsContext, IPetsDescript } from "./@types";
 
 export const PetsContex = createContext({} as IPetsContext);
 
@@ -16,14 +10,13 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpenTwo, setIsOpenTwo] = useState<boolean>(false);
   const [isOpenThree, setIsOpenThree] = useState<boolean>(false);
-  const [isOpenFour, setIsOpenFour] = useState<boolean>(false);
-  const [editingPets, setEditingPets] = useState<IDescriptEditPets>(
-    {} as IDescriptEditPets
+  const [editingPets, setEditingPets] = useState<IPetsDescript>(
+    {} as IPetsDescript
   );
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg0NDk4NzcsImV4cCI6MTY3ODQ1MzQ3Nywic3ViIjoiNSJ9.KCE5RB5GmXksc9FYXFBh1fY5K38nNuDA-4Q7bGb8Ktg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
 
     async function importPetsFromCard() {
       try {
@@ -40,10 +33,11 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
   }, []);
 
   async function EditPetsCard(formData: any, id: string) {
-    const token = localStorage.getItem("@TOKEN");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
 
     try {
-      const response = await api.put(`/locations/${id}`, formData, {
+      const response = await api.patch(`/locations/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token} `,
         },
@@ -62,7 +56,8 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
   }
 
   async function DeletePetsCard(id: string) {
-    const token = localStorage.getItem("@TOKEN");
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
 
     try {
       const headers = {
@@ -85,8 +80,6 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
         setIsOpenTwo,
         isOpenThree,
         setIsOpenThree,
-        isOpenFour,
-        setIsOpenFour,
         EditPetsCard,
         DeletePetsCard,
         editingPets,

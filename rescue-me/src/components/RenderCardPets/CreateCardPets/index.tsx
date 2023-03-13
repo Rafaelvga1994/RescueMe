@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { IPetsDescript } from "../../../context/@types";
 import { PetsContex } from "../../../context/PetsContext";
 import { StyledCardPets } from "./styles";
 

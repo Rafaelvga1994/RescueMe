@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { IPetsContext, IPetsDescript } from "../../context/@types";
 import { PetsContex } from "../../context/PetsContext";
 import { FooterPage } from "../Footer";
-import { InformationPets } from "../InformationPets";
 import { InformationPetsPageHader } from "../InformationPetsPageHader";
 import { CreateCardPets } from "./CreateCardPets";
 import { RenderCartPetsContainer, StyledRenderCardPets } from "./styles";
@@ -14,7 +13,7 @@ export function RenderCardPets() {
   return (
     <div>
       <InformationPetsPageHader />
-      <InformationPets />
+
       <StyledRenderCardPets>
         <div className="container__petButtonAndTitle">
           <h2>Animais para Adoção</h2>
