@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import { api } from "../services";
 
@@ -41,13 +41,15 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const Token = localStorage.getItem("@Token")!;
   //   const navigate = useNavigate();
 
+  const navigate = useNavigate()
+
   const UserLogin = async (formData: ILogin) => {
     try {
       const response = await api.post<any>("/login", formData);
       localStorage.setItem("@Token", response.data.accessToken);
       setUser(response.data);
       toast.success("Login Realizado com sucesso!");
-      //   navigate('/dashborn');
+      // navigate('/');
     } catch (error) {
       toast.error("Email ou senha invalido");
     }
@@ -67,7 +69,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     setUser(null);
     localStorage.removeItem("@Token");
     toast.success("Logout Realizado com sucesso!");
-    // navigate('/');
+    navigate('/');
   };
   return (
     <UserContext.Provider

@@ -13,7 +13,7 @@ export const HeaderContainerDesktopStyled = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
 }
 
 .DesktopHeaderContainer{
