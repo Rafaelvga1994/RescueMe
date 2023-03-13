@@ -12,7 +12,7 @@ export function CardShelter({
   isAdmin,
   id,
 }: iCardShelter) {
-  const { userDeletShelter } = useContext(UserContext);
+  const { modalDeletManipulation } = useContext(UserContext);
   const navigate = useNavigate();
   return (
     <CardShelterContainerStyled>
@@ -34,7 +34,7 @@ export function CardShelter({
           {isAdmin ? (
             <button
               className="ButtonDeleteCardShelter"
-              onClick={() => userDeletShelter(id)}
+              onClick={() => modalDeletManipulation(id)}
             >
               <BsTrash3 color="#fff" size={20} />
             </button>

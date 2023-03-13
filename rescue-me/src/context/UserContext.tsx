@@ -33,6 +33,8 @@ interface IUserContext {
     React.SetStateAction<iShelter[] | undefined>
   >;
   searchShelter: (data: any) => void;
+  modalDeletManipulation: (id: any) => void;
+  deletShelterModal: boolean;
 }
 
 export interface ILogin {
@@ -52,12 +54,19 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [shelterList, setShelterList] = useState<iShelter[]>();
   const [noChangeShelterList, setNoChangeShelterList] = useState<iShelter[]>();
   const [addShelterModal, setAddShelterModal] = useState(false);
+  const [deletShelterModal, setDeletShelterModal] = useState(false);
   const Token = localStorage.getItem("@Token")!;
   const userID = localStorage.getItem("@USERID");
   const navigate = useNavigate();
 
   const modalAddManipulation = () => {
     setAddShelterModal((prev) => !prev);
+  };
+  const modalDeletManipulation = (id: any) => {
+    setDeletShelterModal((prev) => !prev);
+    if (deletShelterModal != true) {
+      localStorage.setItem("@SHELTERID", id);
+    }
   };
   const UserLogin = async (formData: ILogin) => {
     try {
@@ -94,6 +103,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       });
       filterShelterList(id);
       toast.success("Deletado com sucesso!");
+      modalDeletManipulation(id);
     } catch (error) {
       toast.error("Ops!");
       console.log(error);
@@ -110,6 +120,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       });
       console.log(response.data);
       toast.success("Criado com sucesso!");
+      data["id"] = response.data.id;
       if (shelterList != undefined) {
         data["id"] = response.data.id;
         setShelterList([...shelterList, { ...data }]);
@@ -131,6 +142,9 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const userLogout = () => {
     setUser(null);
     localStorage.removeItem("@Token");
+    localStorage.removeItem("@SHELTERID");
+    localStorage.removeItem("@USERNAME");
+    localStorage.removeItem("@USERID");
     toast.success("Logout Realizado com sucesso!");
     navigate("/");
   };
@@ -159,6 +173,8 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         setShelterList,
         setNoChangeShelterList,
         searchShelter,
+        deletShelterModal,
+        modalDeletManipulation,
       }}
     >
       {children}

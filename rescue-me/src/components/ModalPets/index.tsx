@@ -24,7 +24,7 @@ export function ModalPets() {
           <input type="text" placeholder="Digite o nome dele..." />
 
           <label htmlFor="">Tipo do animal</label>
-          <select id="">
+          <select id="" title="Selecionar tipo">
             <option value="">Tipo de animal</option>
           </select>
 
