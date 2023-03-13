@@ -13,7 +13,6 @@ export function PetsPage() {
       {isOpen && <ModalPets />}
       {isOpenTwo && <ModalEditPets />}
       {isOpenThree && <ModalDeletePets />}
-
       <RenderCardPets />
     </div>
   );
