@@ -15,7 +15,7 @@ const schema = yup.object({
     .oneOf([yup.ref("password")], "A Senha precisa ser igual"),
 });
 
-const RegisterForm = () => {
+export const RegisterForm = () => {
   const { UserRegister } = useContext(UserContext);
   const {
     register,

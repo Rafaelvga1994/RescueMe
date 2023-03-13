@@ -5,13 +5,12 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { IPetsCard } from "../../context/@types";
 import { iShelter } from "../../context/@types";
-import { IUser } from "../../context/UserContext";
+import { IUser, UserContext } from "../../context/UserContext";
 
 export function ListShelter() {
-  const [shelterList, setShelterList] = useState<iShelter[]>();
-
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2NzgzMjQzNjUsImV4cCI6MTY3ODMyNzk2NSwic3ViIjoiNCJ9.czXjw-WvxrGy1UQITNPmfRlCi3EJJiuUA-Pnvt9n1B8";
+  const { setShelterList, shelterList, setNoChangeShelterList } =
+    useContext(UserContext);
+  const token = localStorage.getItem("@Token")!;
 
   useEffect(() => {
     async function listShelterAPI(token: string) {
@@ -19,8 +18,8 @@ export function ListShelter() {
         headers: { Authorization: `Bearer ${token}` },
       });
       try {
-        console.log(response.data);
         setShelterList(response.data);
+        setNoChangeShelterList(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -38,6 +37,7 @@ export function ListShelter() {
               shelterName={shelter.name}
               shelterCity={shelter.state}
               isAdmin={true}
+              id={shelter.id}
             />
           </li>
         ))}

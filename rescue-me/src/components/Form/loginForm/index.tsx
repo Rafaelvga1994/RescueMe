@@ -4,6 +4,7 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { Input } from "../input";
 import { ILogin, UserContext } from "../../../context/UserContext";
+import { api } from "../../../services";
 
 const schema = yup.object({
   email: yup.string().required("O email é Obrigatório "),
@@ -17,13 +18,9 @@ export const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ILogin>({ resolver: yupResolver(schema) });
-
-  const loginSubtmit: SubmitHandler<ILogin> = (formData) => {
-    UserLogin(formData);
-  };
-
+  
   return (
-    <form onSubmit={handleSubmit(loginSubtmit)}>
+    <form onSubmit={handleSubmit(UserLogin)} noValidate>
       <Input
         type="email"
         label="Digite o seu email"
@@ -36,7 +33,7 @@ export const LoginForm = () => {
         register={register("password")}
         error={(errors as Record<string, FieldError>).password}
       />
-      <button>Entrar</button>
+      <button type="submit">Entrar</button>
     </form>
   );
 };
