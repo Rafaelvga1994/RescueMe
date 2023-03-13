@@ -7,7 +7,8 @@ import { ILogin, UserContext } from "../../../context/UserContext";
 import { api } from "../../../services";
 import { StyledForm } from "../styled";
 import { StyledDiv } from "./styled";
-import imgLogin from "../../../assets/ImgLogin.png";
+import imgLogin from "../../../assets/ImgLogin.png"
+
 
 const schema = yup.object({
   email: yup.string().required("O email é Obrigatório "),
