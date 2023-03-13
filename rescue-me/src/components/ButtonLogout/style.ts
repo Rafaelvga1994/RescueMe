@@ -11,6 +11,7 @@ export const ButtonLogoutStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: 0;
+    cursor: pointer;
 
 p{
     font-size: 12px;

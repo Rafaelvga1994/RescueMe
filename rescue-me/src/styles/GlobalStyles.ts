@@ -51,6 +51,9 @@ body {
 	line-height: 1;
 	padding: 16px;
 }
+#root{
+	max-width: 1300px;
+}
 ol, ul {
 	list-style: none;
 }
@@ -75,4 +78,11 @@ dialog{
     display: unset;
     position: unset;
   }
+
+@media (min-width: 900px) {
+	body {
+		display: flex;
+		justify-content: center;
+	}
+}
 `;
