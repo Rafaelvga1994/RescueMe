@@ -30,7 +30,7 @@ export interface IPetsDescript {
   userId: number;
 }
 
-export interface iShelter{
+export interface iShelter {
   address: string;
   id: number;
   img: string;
@@ -41,9 +41,17 @@ export interface iShelter{
   userId: number;
 }
 
-export interface iCardShelter{
-    imageShelter: string;
-    shelterName: string;
-    shelterCity: string;
-    isAdmin: boolean;
+export interface iCardShelter {
+  imageShelter: string;
+  shelterName: string;
+  shelterCity: string;
+  isAdmin: boolean;
+  id: number;
+}
+export interface IAddShelter {
+  name: string;
+  address: string;
+  state: string;
+  img: string;
+  telephone: number;
 }
