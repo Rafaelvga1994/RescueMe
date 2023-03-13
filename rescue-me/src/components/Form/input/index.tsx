@@ -1,5 +1,6 @@
 import "react-hook-form";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { StyledFieldset } from "./style";
 
 interface IInputProps {
   label: string;
@@ -11,10 +12,10 @@ interface IInputProps {
 export const Input = ({ label, type, register, error }: IInputProps) => {
   const errorMessage = error?.message;
   return (
-    <fieldset>
+    <StyledFieldset>
       <label htmlFor={type}>{label}</label>
       <input type={type} {...register} />
       {errorMessage && <p>{errorMessage}</p>}
-    </fieldset>
+    </StyledFieldset>
   );
 };
