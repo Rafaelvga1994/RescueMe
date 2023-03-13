@@ -92,6 +92,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
           Authorization: `Bearer ${Token}`,
         },
       });
+      filterShelterList(id);
       toast.success("Deletado com sucesso!");
     } catch (error) {
       toast.error("Ops!");
@@ -108,6 +109,9 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
         },
       });
       toast.success("Criado com sucesso!");
+      if (shelterList != undefined) {
+        setShelterList([...shelterList, { ...data }]);
+      }
       modalAddManipulation();
     } catch (error) {
       toast.error("Ops!");
@@ -127,6 +131,14 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     localStorage.removeItem("@Token");
     toast.success("Logout Realizado com sucesso!");
     navigate("/");
+  };
+  const filterShelterList = (data: any) => {
+    const filtredShelter = noChangeShelterList?.filter(
+      (shelter) => shelter.id != data
+    );
+    if (filtredShelter != undefined) {
+      setShelterList([...filtredShelter]);
+    }
   };
 
   return (
