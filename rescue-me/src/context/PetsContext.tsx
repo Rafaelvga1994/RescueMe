@@ -10,10 +10,13 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isOpenTwo, setIsOpenTwo] = useState<boolean>(false);
   const [isOpenThree, setIsOpenThree] = useState<boolean>(false);
+  const [editingPets, setEditingPets] = useState<IPetsDescript>(
+    {} as IPetsDescript
+  );
 
   useEffect(() => {
     const token =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2NzgzMjI1NDAsImV4cCI6MTY3ODMyNjE0MCwic3ViIjoiNCJ9.S4EfpV7uSaw__4AtY2_tvdr4OCdM8G_ymd8bOF-L5Hg";
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
 
     async function importPetsFromCard() {
       try {
@@ -29,6 +32,44 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
     importPetsFromCard();
   }, []);
 
+  async function EditPetsCard(formData: any, id: string) {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
+
+    try {
+      const response = await api.patch(`/locations/${id}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token} `,
+        },
+      });
+
+      const newPetCard = pets.map((pet) => {
+        if (id == pet.id) {
+          return { ...pet, ...formData };
+        } else {
+          return pet;
+        }
+      });
+
+      setPets(newPetCard);
+    } catch (error) {}
+  }
+
+  async function DeletePetsCard(id: string) {
+    const token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpY2hhcmQwN0BnbWFpbC5jb20iLCJpYXQiOjE2Nzg3MTUzOTYsImV4cCI6MTY3ODcxODk5Niwic3ViIjoiMiJ9.01tIHClPmkzIIAW4Qa3BPxTQP9Eq8hPXkmd-cc15M-M";
+
+    try {
+      const headers = {
+        Authorization: `Bearer ${token} `,
+      };
+      await api.delete(`/locations/${id}`, { headers });
+
+      const deletePet = pets.filter((pet) => pet.id !== id);
+      setPets(deletePet);
+    } catch (error) {}
+  }
+
   return (
     <PetsContex.Provider
       value={{
@@ -39,6 +80,10 @@ export const CreatePetsProviders = ({ children }: IDefaultProviderProps) => {
         setIsOpenTwo,
         isOpenThree,
         setIsOpenThree,
+        EditPetsCard,
+        DeletePetsCard,
+        editingPets,
+        setEditingPets,
       }}
     >
       {children}

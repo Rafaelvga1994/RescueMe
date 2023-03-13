@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { IPetsContext, IPetsDescript } from "../../context/@types";
 import { PetsContex } from "../../context/PetsContext";
-import { InformationPets } from "../InformationPets";
+import { FooterPage } from "../Footer";
 import { InformationPetsPageHader } from "../InformationPetsPageHader";
 import { CreateCardPets } from "./CreateCardPets";
+import { RenderCartPetsContainer, StyledRenderCardPets } from "./styles";
 
 export function RenderCardPets() {
   const { pets }: any = useContext(PetsContex);
@@ -12,13 +13,13 @@ export function RenderCardPets() {
   return (
     <div>
       <InformationPetsPageHader />
-      <InformationPets />
-      <section>
-        <div>
+
+      <StyledRenderCardPets>
+        <div className="container__petButtonAndTitle">
           <h2>Animais para Adoção</h2>
-        </div>
-        <div>
+
           <button
+            className="buttonAddPetsToLocal"
             onClick={() => {
               setIsOpen(true);
             }}
@@ -27,13 +28,16 @@ export function RenderCardPets() {
           </button>
         </div>
         {pets.map((pet: IPetsContext) => (
-          <ul>
+          <RenderCartPetsContainer>
             {pet.pets.map((renderPets: IPetsDescript) => (
               <CreateCardPets key={pets.id} renderPets={renderPets} />
             ))}
-          </ul>
+          </RenderCartPetsContainer>
         ))}
-      </section>
+      </StyledRenderCardPets>
+      <div>
+        <FooterPage />
+      </div>
     </div>
   );
 }

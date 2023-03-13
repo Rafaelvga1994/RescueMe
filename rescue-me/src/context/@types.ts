@@ -20,17 +20,25 @@ export interface IPetsContext {
   isOpenThree: boolean;
   setIsOpenThree: React.Dispatch<React.SetStateAction<boolean>>;
   setIsOpenTwo: React.Dispatch<React.SetStateAction<boolean>>;
+  EditPetsCard(formData: any, id: string): Promise<void>;
+  DeletePetsCard(id: string): Promise<void>;
+  editingPets: IPetsDescript;
+  setEditingPets: React.Dispatch<React.SetStateAction<IPetsDescript>>;
 }
 
 export interface IPetsDescript {
+  id: string;
   name: string;
   img: string;
   type: string;
   status: string;
   userId: number;
+  address: string;
+  telephone: string;
+  state: string;
 }
 
-export interface iShelter{
+export interface iShelter {
   address: string;
   id: number;
   img: string;
@@ -41,9 +49,9 @@ export interface iShelter{
   userId: number;
 }
 
-export interface iCardShelter{
-    imageShelter: string;
-    shelterName: string;
-    shelterCity: string;
-    isAdmin: boolean;
+export interface iCardShelter {
+  imageShelter: string;
+  shelterName: string;
+  shelterCity: string;
+  isAdmin: boolean;
 }

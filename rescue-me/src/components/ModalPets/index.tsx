@@ -30,6 +30,18 @@ export function ModalPets() {
 
           <label htmlFor="">Link da foto do animal</label>
           <input type="text" placeholder="Insira o link da foto aqui..." />
+
+          <div>
+            <button
+              className="button__colorGray"
+              onClick={() => setIsOpen(false)}
+            >
+              Cancelar
+            </button>
+            <button className="button__colorOrange" type="submit">
+              Adicionar
+            </button>
+          </div>
         </form>
       </div>
     </StyledDialogModalPets>

@@ -1,22 +1,26 @@
 import React, { useContext } from "react";
 import { PetsContex } from "../../../context/PetsContext";
+import { StyledDialogModalDeletePets } from "./styles";
 
 export function ModalDeletePets() {
   const { setIsOpenThree } = useContext(PetsContex);
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          setIsOpenThree(false);
-        }}
-      >
-        Fechar
-      </button>
-      Botão de DELETAR Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Ex alias facere cumque voluptates nostrum ea voluptatum vero debitis
-      quidem quod corporis a, dolores labore, quasi voluptatem natus inventore,
-      magni eligendi?
-    </div>
+    <StyledDialogModalDeletePets>
+      <h2>Tem certeza que deseja excluir esse animal do abrigo?</h2>
+
+      <div>
+        <button
+          className="button__colorGray"
+          onClick={() => {
+            setIsOpenThree(false);
+          }}
+        >
+          Cancelar
+        </button>
+
+        <button className="button__colorOrange">Excluir</button>
+      </div>
+    </StyledDialogModalDeletePets>
   );
 }
