@@ -54,4 +54,12 @@ export interface iCardShelter {
   shelterName: string;
   shelterCity: string;
   isAdmin: boolean;
+  id: number;
+}
+export interface IAddShelter {
+  name: string;
+  address: string;
+  state: string;
+  img: string;
+  telephone: number;
 }
