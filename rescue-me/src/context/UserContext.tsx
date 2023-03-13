@@ -103,13 +103,15 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     data["pets"] = [];
     data["userId"] = userID;
     try {
-      await api.post<any>(`/locations`, data, {
+      const response = await api.post<any>(`/locations`, data, {
         headers: {
           Authorization: `Bearer ${Token}`,
         },
       });
+      console.log(response.data);
       toast.success("Criado com sucesso!");
       if (shelterList != undefined) {
+        data["id"] = response.data.id;
         setShelterList([...shelterList, { ...data }]);
       }
       modalAddManipulation();
