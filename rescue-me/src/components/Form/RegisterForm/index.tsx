@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { Input } from "../input";
 import { IRegister, UserContext } from "../../../context/UserContext";
+import { StyleRegisterForm } from "../styled";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object({
   name: yup.string().required("O nome é Obrigatório "),
@@ -16,6 +18,8 @@ const schema = yup.object({
 });
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
+
   const { UserRegister } = useContext(UserContext);
   const {
     register,
@@ -27,7 +31,7 @@ export const RegisterForm = () => {
     UserRegister(formData);
   };
   return (
-    <form onSubmit={handleSubmit(registerSubtmit)}>
+    <StyleRegisterForm onSubmit={handleSubmit(registerSubtmit)}>
       <Input
         type="text"
         label="Digite o seu nome"
@@ -52,7 +56,12 @@ export const RegisterForm = () => {
         register={register("confirmPassword")}
         error={(errors as Record<string, FieldError>).confirmPassword}
       />
-      <button type="submit">Cadastrar</button>
-    </form>
+      <button className="submitSignup" type="submit">
+        Cadastrar
+      </button>
+      <button onClick={() => navigate("/")} className="backToLoginButton">
+        Voltar para o login
+      </button>
+    </StyleRegisterForm>
   );
 };

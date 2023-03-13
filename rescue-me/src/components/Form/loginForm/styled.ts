@@ -2,30 +2,45 @@ import styled from "styled-components";
 
 export const StyledDiv = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 3%;
-  margin-top: 15%;
+  align-items: center;
+  align-content: center;
+  margin-top: 1rem;
 
-  .first--paragraph {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 150%;
-
-    color: #212529;
+  .container__img {
+    display: none;
   }
 
-  .second--paragraph {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
+  .container__imgMobile {
+    width: 90%;
+    margin-top: 1rem;
+    border-radius: 5px;
+  }
 
-    text-align: center;
+  @media (min-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 1rem;
+    flex-direction: row;
+    gap: 2rem;
 
-    color: #495057;
-    width: 80%;
+    .container__img {
+      width: 43%;
+      display: flex;
+    }
+    .container__imgMobile {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1244px) {
+    margin-top: 2rem;
+    .container__img {
+      width: 30%;
+    }
   }
 `;

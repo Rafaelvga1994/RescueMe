@@ -4,11 +4,11 @@ import * as yup from "yup";
 import { useContext } from "react";
 import { Input } from "../input";
 import { ILogin, UserContext } from "../../../context/UserContext";
-import { api } from "../../../services";
 import { StyledForm } from "../styled";
 import { StyledDiv } from "./styled";
-import imgLogin from "../../../assets/ImgLogin.png"
-
+import imgLogin from "../../../assets/ImgLogin.png";
+import imgLoginMobile from "../../../assets/ImgLoginMobile.png";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object({
   email: yup.string().required("O email é Obrigatório "),
@@ -23,8 +23,15 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm<ILogin>({ resolver: yupResolver(schema) });
 
+  const navigate = useNavigate();
+
   return (
     <StyledDiv>
+      <img
+        className="container__imgMobile"
+        src={imgLoginMobile}
+        alt="LoginImg"
+      />
       <StyledForm onSubmit={handleSubmit(UserLogin)} noValidate>
         <div className="container">
           <h4>Login</h4>
@@ -47,12 +54,15 @@ export const LoginForm = () => {
           <p className="second--paragraph">
             Clicando no botão abaixo, você pode se cadastrar rapidamente
           </p>
-          <button type="submit" className="btnRegisterLogin">
+          <button
+            onClick={() => navigate("/register")}
+            className="btnRegisterLogin"
+          >
             Cadastrar
           </button>
         </div>
       </StyledForm>
-      <img src={imgLogin} alt="LoginImg" />
+      <img className="container__img" src={imgLogin} alt="LoginImg" />
     </StyledDiv>
   );
 };

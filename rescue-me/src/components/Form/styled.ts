@@ -1,102 +1,116 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-  display: flex;
-  gap: 20px;
-  border: 1px solid #e9ecef;
+  width: 80%;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 5px;
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    gap: 5%;
-    justify-content: space-evenly;
-    align-items: center;
-  }
   h4 {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 150%;
-
-    color: #212529;
-  }
-  label {
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-    color: #212529;
-  }
-  input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px 16px;
-
-    width: 80%;
-    height: 33px;
-
-    background: #f8f9fa;
-
-    border: 1px solid #e9ecef;
-    border-radius: 4px;
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .btnEnterLogin {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 16px;
-
-    width: 90%;
-    height: 38px;
-
-    background: #ff701c;
-    border: 1px solid #ff701c;
-    border-radius: 4px;
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-
-    color: #fcfeff;
-    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-brand);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
-  .btnEnterLogin:hover {
-    opacity: 50%;
+  .first--paragraph {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .second--paragraph {
+    text-align: center;
+    margin-top: 1rem;
   }
 
   .btnRegisterLogin {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 16px;
-
-    width: 90%;
-    height: 38px;
-
-    border: 1px solid #e9ecef;
-    border-radius: 4px;
-
-    font-family: "IBM Plex Sans";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-
-    color: #212529;
-    cursor: pointer;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
   }
 
-  .btnRegisterLogin:hover {
-    opacity: 50%;
+  @media (min-width: 499px) {
+    width: 84%;
+  }
+  @media (min-width: 834px) {
+    width: 86%;
+    .btnEnterLogin {
+      height: 45px;
+    }
+
+    .btnRegisterLogin {
+      height: 45px;
+    }
+  }
+
+  @media (min-width: 1023px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1244px) {
+    width: 25%;
+  }
+`;
+
+export const StyleRegisterForm = styled.form`
+  border: 1px solid gray;
+  padding: 1rem;
+  width: 80%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .submitSignup {
+    height: 35px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--color-brand);
+    color: white;
+    border: none;
+  }
+
+  .backToLoginButton {
+    height: 35px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+  }
+
+  @media (min-width: 767px) {
+    .submitSignup {
+      height: 45px;
+    }
+
+    .backToLoginButton {
+      height: 45px;
+    }
+  }
+
+  @media (min-width: 1023px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1439px) {
+    width: 25%;
   }
 `;
