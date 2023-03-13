@@ -1,13 +1,19 @@
 import { BsTrash3 } from "react-icons/bs";
 import { CardShelterContainerStyled } from "./style";
 import { iCardShelter } from "../../../context/@types";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../context/UserContext";
 
 export function CardShelter({
   imageShelter,
   shelterName,
   shelterCity,
   isAdmin,
+  id,
 }: iCardShelter) {
+  const { userDeletShelter } = useContext(UserContext);
+  const navigate = useNavigate();
   return (
     <CardShelterContainerStyled>
       <div className="ImageShelterContainer">
@@ -19,9 +25,17 @@ export function CardShelter({
           <h3 className="ShelterCity">{shelterCity}</h3>
         </div>
         <div className="ButtonsCardShelter">
-          <button className="ButtonAnimalsShelter">Animais no abrigo</button>
+          <button
+            className="ButtonAnimalsShelter"
+            onClick={() => navigate("/pets")}
+          >
+            Animais no abrigo
+          </button>
           {isAdmin ? (
-            <button className="ButtonDeleteCardShelter">
+            <button
+              className="ButtonDeleteCardShelter"
+              onClick={() => userDeletShelter(id)}
+            >
               <BsTrash3 color="#fff" size={20} />
             </button>
           ) : (
