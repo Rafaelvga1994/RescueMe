@@ -8,18 +8,6 @@ import { PetsContex } from "../../context/PetsContext";
 export function PetsPage() {
   const { isOpen, isOpenTwo, isOpenThree } = useContext(PetsContex);
 
-<<<<<<< HEAD
-
-    return (
-        <div>
-            {isOpen && <ModalPets />}
-            {isOpenTwo && <ModalEditPets />}
-            {isOpenThree && <ModalDeletePets />}
-            <RenderCardPets />
-        </div>
-    );
-
-=======
   return (
     <div>
       {isOpen && <ModalPets />}
@@ -29,5 +17,4 @@ export function PetsPage() {
       <RenderCardPets />
     </div>
   );
->>>>>>> 2985af901708279f29ef87719dad53732f121a46
 }
