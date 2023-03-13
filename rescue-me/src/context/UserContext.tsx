@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import { api } from "../services";
 import { iShelter } from "./@types";
@@ -56,9 +56,11 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const userID = localStorage.getItem("@USERID");
   const navigate = useNavigate();
 
+
   const modalAddManipulation = () => {
     setAddShelterModal((prev) => !prev);
   };
+
   const UserLogin = async (formData: ILogin) => {
     try {
       const response = await api.post<any>("/login", formData);
@@ -69,7 +71,11 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
       console.log(response.data);
       setUser(response.data.user);
       toast.success("Login Realizado com sucesso!");
-      navigate("/dashboard");
+
+      // navigate("/dashboard");
+
+      // navigate('/');
+
     } catch (error) {
       toast.error("Email ou senha invalido");
       console.log(error);
@@ -132,7 +138,10 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     setUser(null);
     localStorage.removeItem("@Token");
     toast.success("Logout Realizado com sucesso!");
-    navigate("/");
+
+    // navigate("/");
+    navigate('/');
+
   };
   const filterShelterList = (data: any) => {
     const filtredShelter = noChangeShelterList?.filter(
