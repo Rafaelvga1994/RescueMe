@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const DivStyled = styled.div`
-  width: 100%;
-  max-width: 960px;
+  width: 82%;
+  max-width: 1300px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 60px;
   margin-bottom: 100px;
   p {
     font-family: "IBM Plex Sans";

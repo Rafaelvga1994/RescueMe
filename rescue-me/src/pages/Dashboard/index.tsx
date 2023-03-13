@@ -6,10 +6,12 @@ import { ListShelter } from "../../components/ListShelters";
 import { AddShelter } from "../../components/ModalShelter";
 import { BtnAddShelter } from "../../components/ButtonADDShelter";
 import { StyledDiv } from "./style";
+import { DeletShelter } from "../../components/ModalShelter/Modal Delete";
 
 export function Dashboard() {
   return (
     <StyledDiv>
+      <DeletShelter />
       <AddShelter />
       <HeaderPageDesktop />
       <HeaderPageMobile />
